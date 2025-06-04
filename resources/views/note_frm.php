@@ -1,4 +1,3 @@
-<?php require_once('_html_header.php') ?>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -61,4 +60,3 @@
     </div>
 </div>
 
-<?php require_once('_html_footer.php') ?>
