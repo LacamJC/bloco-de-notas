@@ -46,12 +46,12 @@ class AuthController extends Controller
             ->where('deleted_at', NULL)
             ->first();
 
-        if (!$user) {
-            return redirect()
-                ->back() // <- Volta a página anterior
-                ->withInput() // <- Mantem as informações do formulario
-                ->with('loginError', 'Username ou password incorretos'); // <- Envia um erro ao usuário
-        }
+        // if (!$user) {
+        //     return redirect()
+        //         ->back() // <- Volta a página anterior
+        //         ->withInput() // <- Mantem as informações do formulario
+        //         ->with('loginError', 'Username ou password incorretos'); // <- Envia um erro ao usuário
+        // }
 
         // Check if password is correct
 

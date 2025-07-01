@@ -31,7 +31,7 @@
                                     <input type="password" class="form-control bg-dark text-info" name="text_password"  value=" {{ old('text_password') }}">
                                     {{-- show error --}}
                                     @error('text_password')
-                                        <div class="alert text-danger">
+                                        <div class="alert text-danger mt-3">
                                             {{$message}}
                                         </div>
                                     @enderror

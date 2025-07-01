@@ -72,7 +72,9 @@ class MainController extends Controller
     {
         // $id = $this->decryptId($id);
         $id = Operations::decrypyId($id);
-
+        if ($id === null) {
+            return redirect()->route('home');
+        }
         // load note
         $note = Note::find($id);
 
@@ -101,17 +103,19 @@ class MainController extends Controller
                 'text_note.max' => "A nota não pode ultrapassar de :max caracteres",
             ]
         );
-        
+
         // Check if note id exists
 
-        if($request->note_id == null){
+        if ($request->note_id == null) {
             return redirect()->route('home');
         }
-        
+
         // decrypt note id 
 
         $id = Operations::decrypyId($request->note_id);
-
+        if ($id === null) {
+            return redirect()->route('home');
+        }
 
         // load note 
 
@@ -132,19 +136,24 @@ class MainController extends Controller
     {
         // $id = $this->decryptId($id);
         $id = Operations::decrypyId($id);
-
+        if ($id === null) {
+            return redirect()->route('home');
+        }
         // load note
 
         $note = Note::find($id);
 
         // show delete note confirmation
 
-        return view('delete_note', ['note' => $note]); 
+        return view('delete_note', ['note' => $note]);
     }
 
-    public function deleteNoteConfirm(Request $request){
+    public function deleteNoteConfirm(Request $request)
+    {
         $id = Operations::decrypyId($request->id);
-
+        if ($id === null) {
+            return redirect()->route('home');
+        }
         // load note
 
         $note = Note::find($id);
@@ -167,7 +176,7 @@ class MainController extends Controller
         // $note->forceDelete();
 
         // redirecto to home
-    
+
         return redirect()->route('home');
     }
 }
